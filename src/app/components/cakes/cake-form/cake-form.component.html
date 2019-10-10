@@ -1,0 +1,28 @@
+<div class="col-md-4 offset-md-2">
+    <div class="card">
+        <div class="card-body">
+            <form action="">
+                <div class="form-group">
+                    <input type="text" name="tittle" [(ngModel)]="cake.title" placeholder="Tittle" class="form-control" autofocus required >
+                </div>
+                <div class="form-group">
+                    <textarea name="description" [(ngModel)]="cake.description" placeholder="Description" rows="2" class="form-control" required ></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="url" name="image" [(ngModel)]="cake.image" placeholder="Url Image" class="form-control" required >
+                </div>
+                <button class="btn btn-success btn-block" (click)="edit ? updateCake() : saveNewCake()">
+                    Save
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="card card-body text-center">
+        <img [src]="cake.image == '' ? '/assets/noimage.jpg' : cake.image" class="card-img-top" alt="">
+        <h3>{{cake.id}}.{{cake.title == '' ? 'Title cake' : cake.title}}</h3>
+        <p>{{cake.description == '' ? 'Write your description' : cake.description}}</p>
+        <p>{{cake.create_at | date: 'dd-MM-yyyy'}}</p>
+    </div>
+</div>

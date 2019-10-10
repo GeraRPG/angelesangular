@@ -1,0 +1,19 @@
+<div class="col-md-4" *ngFor="let cake of Cakes">
+    <div class="card card-text">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            {{cake.title}}
+            <button class="btn btn-danger" (click)="deletedCake(cake.id)">
+                <i class="far fa-trash-alt"></i>
+            </button>
+        </div>
+        <img [src]="cake.image" class="card-img-top" alt="">
+        <div class="card-body">
+            {{cake.description}}
+        </div>
+        <div class="card-footer text-center">
+            <a [routerLink]="['/cakes/edit',cake.id]" class="btn btn-info btn-black">
+                Edit Cake
+            </a>
+        </div>
+    </div>
+</div>
